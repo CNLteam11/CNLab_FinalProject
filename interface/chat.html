@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CNL 11 | CHAT</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="chat.css">
+</head>
+
+<body>
+	<div class="topnav">
+		<a href="file:///Users/Jay/Desktop/MCN/home.html">Home</a>
+		<a href="file:///Users/Jay/Desktop/MCN/login.html">Login</a>
+		<a href="file:///Users/Jay/Desktop/MCN/register.html">Register</a>
+		<a class="active" href="file:///Users/Jay/Desktop/MCN/chat.html">Chat</a>
+	</div>
+
+	<div class="box">
+		<div class="header">
+			<p align="center">Lebron James<br align="center">31y, Male</br></p>
+		</div>
+
+		<div id = "chat-container" class="chat-container">
+			<div class="chat friend">
+				<div class="user-photo"><img src="images/james.jpg"></div>
+				<p class="chat-message">How are you?</p>				
+			</div>
+			<div class="chat self">
+				<div class="user-photo"><img src="images/curry.jpg"></div>
+				<p class="chat-message">Fine, thx!</p>				
+			</div>
+			<div class="chat friend">
+				<div class="user-photo"><img src="images/james.jpg"></div>
+				<p class="chat-message">How old are you?</p>			
+			</div>
+			<div class="chat friend">
+				<div class="user-photo"><img src="images/james.jpg"></div>
+				<p class="chat-message">And how tall are you?</p>				
+			</div>
+		</div>
+
+		<div class="chat-form">
+			<textarea id="myTextarea" placeholder="Type your message"></textarea>
+			<button onclick="sendMes()">Send</button>
+		</div>
+	</div>
+
+	<script>
+		function sendMes() {
+			var image = document.createElement("div");
+			var userImage = new Image();
+			userImage.src = "images/curry.jpg";
+			image.appendChild(userImage);
+			image.className = "user-photo";
+
+			var message = document.createElement("p");
+			message.innerHTML = document.getElementById("myTextarea").value;		
+			message.className = "chat-message";
+			document.getElementById("myTextarea").value = "";
+			
+			var container = document.createElement("div");
+			container.appendChild(image);
+			container.appendChild(message);
+			container.className = "chat self";
+
+			document.getElementById("chat-container").appendChild(container);
+
+		}
+	</script>
+
+</body>
+</html>

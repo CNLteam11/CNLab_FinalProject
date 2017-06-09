@@ -1,0 +1,153 @@
+body {
+	margin: 0 auto;
+	background-image: url("images/bg.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 1200px;
+	font-family: Microsoft JhengHei;
+}
+
+.topnav {
+	overflow: hidden;
+	background-color: #333;
+}
+
+.topnav a {
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.box {
+	margin: 50px auto;
+	width: 45%;
+	min-width: 400px;
+	height: 800px;
+	box-shadow: 0 3px #ccc;	
+}
+
+.container {
+	width: 480px;
+	height: 640px;
+	text-align: center;
+	background: rgba(52, 73, 94, 0.7);
+	border-radius: 4px;
+	margin: 0 auto;
+	margin-top: 150px;
+}
+
+.container img {
+	width: 100px;
+	height: 100px;
+	margin-top: -50px;
+	margin-bottom: 30px;
+}
+
+.container p {
+	padding-top: 30px;
+	font-size: 30px;
+}
+
+.fillin {
+	height: 30px;
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.fillin .left {
+	width: 30%;
+	color: white;
+	font-size: 20px;
+	text-align: right;
+}
+
+.fillin .right {
+	width: 65%;
+}
+
+input[type="text"], [type="password"] {
+	width: 240px;
+	height: 30px;
+	font-size: 18px;
+	margin-bottom: 20px;
+	background: white;
+	padding-left: 5px;
+	text-align: left;
+}
+
+input[type="info"] {
+	width: 240px;
+	height: 100px;
+	font-size: 18px;
+	margin-bottom: 50px;
+	background: white;
+	padding-left: 5px;
+	text-align: top;
+}
+
+.fillin[id="last"] {
+	margin-bottom: 50px;
+}
+
+.fillin textarea {
+	width: 240px;
+	height: 100px;
+	font-size: 18px;
+	resize: none;
+	padding-left: 5px;
+}
+
+.fillin[id="info"] {
+	margin-bottom: 70px;
+}
+
+.container .login {
+	margin-top: 30px;
+	padding: 15px 30px;
+	color: white;	
+	border-radius: 4px;
+	border: none;
+	background: #2ecc71;
+	border-bottom: 4px solid #27ae60;
+}
+
+.btn-login {
+	margin-top: 30px;
+	padding: 15px 30px;
+	color: white;	
+	border-radius: 4px;
+	border: none;
+	background: #2ecc71;
+	border-bottom: 4px solid #27ae60;
+}
+
+a {
+	color: white;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {  /*safari and chrome*/
+    select {
+    	width: 250px;
+        height: 40px;
+        font-size: 18px;
+        line-height:30px;
+        background:#f4f4f4;
+    } 
+
+    select[name="hobbies"] {
+    	height: 70px;
+    }
+}

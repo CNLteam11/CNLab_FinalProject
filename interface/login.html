@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CNL 11 | LOGIN</title>
+	<link rel="stylesheet" type="text/css" href="style.css"></link>
+</head>
+<body>
+	<div class="topnav">
+		<a href="file:///Users/Jay/Desktop/MCN/home.html">Home</a>
+		<a class="active" href="file:///Users/Jay/Desktop/MCN/login.html">Login</a>
+		<a href="file:///Users/Jay/Desktop/MCN/register.html">Register</a>
+	</div>
+
+	<div class="container">
+		<img src="images/login.png">
+		<form>
+			<div class="form-input">
+				<input id="username" type="text" placeholder="Enter Username:">
+			</div>
+			<div class="form-input">
+				<input id="password" type="password" placeholder="Enter Password:">
+			</div>
+
+			<input type="submit" name="login" value="LOGIN" onclick="login()" class="login"><br><br>
+
+			<a href="#">Forget password?</a><br><br>
+			<a href="file:///Users/Jay/Desktop/MCN/register.html">Register</a>
+		</form>
+	</div>
+
+	<script>
+		function login() {
+			document.getElementById("username").value = "test1";
+			if (document.getElementById("username").value = "cnl11" && document.getElementById("password").value = "cnl11") {
+				alert("Wrong username or password!");
+				window.location.href = "file:///Users/Jay/Desktop/MCN/home.html";
+			} else {
+				alert("Wrong username or password!");
+			}
+		}
+
+	</script>
+
+</body>
+</html>
