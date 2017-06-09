@@ -1,7 +1,10 @@
+/************/
+/* ALL PART */
+/************/
+
 body {
 	margin: 0 auto;
 	background-image: url("images/bg.jpg");
-	background-repeat: no-repeat;
 	background-size: 100% 1200px;
 	font-family: Microsoft JhengHei;
 }
@@ -12,13 +15,13 @@ body {
 }
 
 .topnav a {
-	float: left;
-	display: block;
+	font-size: 17px;
 	color: #f2f2f2;
 	text-align: center;
-	padding: 14px 16px;
 	text-decoration: none;
-	font-size: 17px;
+	display: block;
+	float: left;
+	padding: 14px 16px;
 }
 
 .topnav a:hover {
@@ -31,19 +34,15 @@ body {
     color: white;
 }
 
-.box {
-	margin: 50px auto;
-	width: 45%;
-	min-width: 400px;
-	height: 800px;
-	box-shadow: 0 3px #ccc;	
-}
+/********************/
+/* REGISTER & LOGIN */
+/********************/
 
 .container {
 	width: 480px;
 	height: 640px;
 	text-align: center;
-	background: rgba(52, 73, 94, 0.7);
+	background-color: rgba(52, 73, 94, 0.7);
 	border-radius: 4px;
 	margin: 0 auto;
 	margin-top: 150px;
@@ -57,20 +56,24 @@ body {
 }
 
 .container p {
-	padding-top: 30px;
 	font-size: 30px;
+	color: white;
+	padding-top: 20px;
+	margin-bottom: 30px;
 }
 
 .fillin {
 	height: 30px;
-	display: flex;
 	margin-bottom: 20px;
+	display: flex;
+	justify-content: space-around;
 }
 
 .fillin .left {
 	width: 30%;
+	font-size: 18px;
+	padding-top: 2px;
 	color: white;
-	font-size: 20px;
 	text-align: right;
 }
 
@@ -78,27 +81,22 @@ body {
 	width: 65%;
 }
 
-input[type="text"], [type="password"] {
+.fillin input[type="text"], [type="password"], [type="info"] {
 	width: 240px;
 	height: 30px;
 	font-size: 18px;
-	margin-bottom: 20px;
-	background: white;
-	padding-left: 5px;
 	text-align: left;
-}
-
-input[type="info"] {
-	width: 240px;
-	height: 100px;
-	font-size: 18px;
-	margin-bottom: 50px;
-	background: white;
+	margin-bottom: 20px;
 	padding-left: 5px;
-	text-align: top;
+	background-color: white;
 }
 
-.fillin[id="last"] {
+.fillin input[type="info"] {
+	height: 90px;
+	margin-bottom: 50px;
+}
+
+.fillin[id="hobbies"] {
 	margin-bottom: 50px;
 }
 
@@ -106,48 +104,293 @@ input[type="info"] {
 	width: 240px;
 	height: 100px;
 	font-size: 18px;
-	resize: none;
 	padding-left: 5px;
+	resize: none;
 }
 
 .fillin[id="info"] {
 	margin-bottom: 70px;
 }
 
-.container .login {
+.container .btn {
+	color: white;	
+	background-color: #2ecc71;
 	margin-top: 30px;
 	padding: 15px 30px;
-	color: white;	
 	border-radius: 4px;
-	border: none;
-	background: #2ecc71;
 	border-bottom: 4px solid #27ae60;
-}
-
-.btn-login {
-	margin-top: 30px;
-	padding: 15px 30px;
-	color: white;	
-	border-radius: 4px;
 	border: none;
-	background: #2ecc71;
-	border-bottom: 4px solid #27ae60;
-}
-
-a {
-	color: white;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {  /*safari and chrome*/
     select {
-    	width: 250px;
-        height: 40px;
+    	width: 240px;
+        height: 30px;
         font-size: 18px;
-        line-height:30px;
-        background:#f4f4f4;
+        line-height: 30px;
+        background-color:#f4f4f4;
     } 
 
     select[name="hobbies"] {
     	height: 70px;
     }
+}
+
+/*************/
+/* CHAT PART */
+/*************/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.box {
+	width: 50%;
+	min-width: 400px;
+	height: 800px;
+	margin: 50px auto;
+	box-shadow: 0 3px #ccc;
+	display: flex;	
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.box .header {
+	width: 100%;
+	height: 55px;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	background-color: #404040;
+}
+
+.box .chat-container {
+	width: 100%;
+	height: 90%;
+	background-color: rgba(255, 255, 255, 0.3);
+	padding: 10px;
+	overflow-x: hidden;
+	overflow-y: scroll; 
+}
+
+.chat-container::-webkit-scrollbar {
+	width: 5px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+	background-color: rgba(255, 255, 255, 0.7);
+	border-radius: 3px;
+}
+
+.chat {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: flex-start;
+	margin-bottom: 10px;
+}
+
+.chat .user-photo {
+	width: 60px;
+	height: 60px;
+	background-image: url("images/login.png");
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.chat .user-photo img {
+	height: 100%;
+}
+
+.chat .chat-message {
+	max-width: 280px;
+	font-size: 15px;
+	color: white;
+	margin: 5px 10px;
+	padding: 5px;
+	border-radius: 10px;	
+}
+
+.friend {
+	display: flex;
+	justify-content: flex-start;;
+}
+
+.self {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.friend .chat-message {
+	background-color: gray;
+}
+
+.self .chat-message {
+	background-color: rgb(0, 102, 255);
+	order: -1; 
+}
+
+.chat-form {
+	height: 6%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.chat-form textarea {
+	width: 87%;
+	font-size: 18px;
+	color: white;
+	background-color: black;
+	padding: 4px;
+	border: 0px solid white;
+	resize: none;
+}
+
+.chat-form textarea:focus {
+	color: black;
+	background-color: white;
+}
+
+.chat-form textarea:hover {
+    background-color: white;
+    color: black;
+}
+
+.chat-form input {
+	width: 12.6%;
+	background-color: black;
+	padding: 0px;
+	font-size: 18px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	-webkit-transition background:  .2s ease;
+	-moz-transition background:  .2s ease;
+	-o-transition background:  .2s ease;
+}
+
+.chat-form input:hover {
+	color: black;
+	background-color: white;
+}
+
+.chat-form button {
+	width: 12.6%;
+	background-color: black;
+	padding: 0px;
+	font-size: 18px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	-webkit-transition background:  .2s ease;
+	-moz-transition background:  .2s ease;
+	-o-transition background:  .2s ease;
+}
+
+.chat-form button:hover {
+	background-color: white;
+	color: black;
+}
+
+/*************/
+/* HOME PART */
+/*************/
+
+.box .friend-header {
+	width: 100%;
+	height: 30px;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	background-color: #404040;
+}
+
+.box .friend-container {
+	width: 100%;
+	height: 96%;
+	background-color: rgba(255, 255, 255, 0.3);
+	overflow-x: hidden;
+	overflow-y: scroll; 
+}
+
+.box .friend-container::-webkit-scrollbar {
+	width: 5px;
+}
+
+.box .friend-container::-webkit-scrollbar-thumb {
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 5px;
+}
+
+.box .friend-box {
+	width: 100%;
+	height: 60px;
+	background-color: rgba(255, 255, 255, 0.3);
+	margin-bottom: 1px;
+	padding: 5px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.friend-box .user-photo {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.friend-box .user-photo img {
+	height: 100%;
+}
+
+.friend-box .leftbox { 
+	width: 80%;
+	max-width: 70%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.friend-box .leftbox .user-name {
+	height: 35%;
+	font-size: 15px;
+	color: gray;
+}
+
+.friend-box .leftbox .messages {
+	height: 60%;
+	font-size: 12px;
+	color: black;
+}
+
+.friend-box .rightbox {
+	width: 10%;
+	height: 100%;
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+	justify-content: space-between; 
+}
+
+.friend-box .rightbox .time {
+	width: 33px;
+	font-size: 10px;
+	color: gray;
+	display: flex;
+	justify-content: center;
+	align-content: flex-start;
+}
+
+.friend-box .rightbox .no {
+	width: 20px;
+	font-size: 15px;
+	color: white;
+	background-color: rgb(26, 255, 26);	
+	display: flex;
+	justify-content: center;
+	align-content: flex-end;
+	border-radius: 45%;
 }
