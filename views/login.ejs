@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CNL 11 | LOGIN</title>
+	<link rel="stylesheet" type="text/css" href="/style.css"></link>
+</head>
+<body>
+	<div class="topnav">
+		<a href="/home">Home</a>
+		<a class="active" href="/login">Login</a>
+		<a href="/register">Register</a>
+	</div>
+
+	<div class="container">
+		<img src="images/login.png">
+		<form>
+			<div class="fillin">
+				<input type="text" id="username" placeholder="Enter Username:">
+			</div>
+			<div class="fillin">
+				<input type="password" id="password" placeholder="Enter Password:">
+			</div>
+			<input type="submit" value="LOGIN" class="btn" onclick="login()"><br><br>
+		</form>
+		
+		<a href="#">Forget password?</a><br><br>
+		<a href="file:///Users/Jay/Desktop/CNLab_FinalProject/interface/register.html">Register</a>
+	</div>
+
+	<script>
+		function login() {
+			if (document.getElementById("username").value != "cnl11" ||
+				document.getElementById("password").value != "cnl11") {
+				alert("Wrong username or password!");
+			} else {
+				window.location.replace = "/home";
+			}
+		}
+	</script>
+
+</body>
+</html>
