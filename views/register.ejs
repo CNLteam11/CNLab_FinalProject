@@ -3,9 +3,12 @@
 <head>
 	<title>CNL 11 | REGISTER</title>
 	<link rel="stylesheet" type="text/css" href="/style.css"></link>
+	<script type="text/javascript" src="/libs/angular.min.js"></script>
+
+	<script>var App = angular.module('app', []);</script>
 </head>
-<body>
-	<div class="topnav">
+<body ng-app="app">
+	<div ng-controller="registerCtrl" ng-init="initialize()" class="topnav">
 		<a href="/home">Home</a>
 		<a href="/login">Login</a>
 		<a class="active" href="/register">Register</a>
@@ -88,8 +91,26 @@
 			</div>
 		</div>	
 
-		<input type="submit" name="submit" value="REGISTER" class="btn"><br>
+		<!--<input ng-click="register" type="submit" name="submit" value="REGISTER" class="btn"><br>-->
+		<button ng-click="register()" type="submit" class="btn" style="cursor:pointer">register</button>
+		
 	</div>
 
+	<script>
+		App.controller('registerCtrl', function(
+			$scope,
+			$rootScope,
+			$http
+		) {
+			$scope.initialize = function(){
+				console.log('111')
+			};
+			$scope.register = function(){
+				console.log("1111111");
+				alert('11111')
+			};
+
+		})
+	</script>
 </body>
 </html>

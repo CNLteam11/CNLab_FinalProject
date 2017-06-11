@@ -3,11 +3,13 @@
 <head>
 	<title>CNL 11 | HOME</title>
 	<link rel="stylesheet" type="text/css" href="/style.css">
+	<script type="text/javascript" src="/libs/angular.min.js"></script>
 	<!--<link rel="stylesheet" type="text/css" href="./home.css">-->
+	<script>var App = angular.module('app', []);</script>
 </head>
-<body>
-	<div class="topnav">
-		<a class="active" href="/home.html">Home</a>
+<body ng-app="app">
+	<div ng-controller="homeCtrl" ng-init="initialize()" class="topnav">
+		<a class="active" href="/home">Home</a>
 		<a href="/login">Login</a>
 		<a href="/register">Register</a>
 		<a href="/chat">Chat</a>
@@ -26,11 +28,11 @@
 					<div class="no">3</div>
 				</div>
 			</div>
-			<div class="friend-box">
+			<div class="friend-box" ng-click="test()">
 				<div class="user-photo"><img src="images/curry.jpg"></div>
 				<div class="leftbox">
 					<div class="user-name">Stephen Curry</div>
-					<div class="messages">Eat my three pointer></div>
+					<div class="messages">Eat my three pointer</div>
 				</div>
 				<div class="rightbox">
 					<div class="time">17:30</div>
@@ -160,6 +162,19 @@
 			</div>
 		</div>
 	</div>
- 
+	<script>
+		App.controller('homeCtrl', function(
+			$scope,
+			$rootScope,
+			$http
+		) {
+			$scope.initialize = function(){
+				console.log("33333")
+			};
+			$scope.test = function(){
+				console.log("test")
+			}
+		})
+	</script>
 </body>
 </html>
