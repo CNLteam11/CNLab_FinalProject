@@ -1,100 +1,74 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>CNL 11 | CHAT</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="chat.css">
-</head>
+	<head>
+		<title>CNL 11 | CHAT</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="chat.css">
+	</head>
 
-<body>
-	<div class="topnav">
-		<a href="file:///Users/Jay/Desktop/CNLab_FinalProject/interface/home.html">Home</a>
-		<a href="file:///Users/Jay/Desktop/CNLab_FinalProject/interface/login.html">Login</a>
-		<a href="file:///Users/Jay/Desktop/CNLab_FinalProject/interface/register.html">Register</a>
-		<a class="active" href="file:///Users/Jay/Desktop/CNLab_FinalProject/interface/chat.html">Chat</a>
-	</div>
-
-	<div class="box">
-		<div class="header">
-			<p align="center">Lebron James<br align="center">31y, Male</br></p>
-		</div>
-
-		<div id = "chat-container" class="chat-container">
-			<div class="chat friend">
-				<div class="user-photo"><img src="images/james.jpg"></div>
-				<p class="chat-message">How are you?</p>				
-			</div>
-			<div class="chat self">
-				<div class="user-photo"><img src="images/curry.jpg"></div>
-				<p class="chat-message">Fine, thx!</p>				
-			</div>
-			<div class="chat friend">
-				<div class="user-photo"><img src="images/james.jpg"></div>
-				<p class="chat-message">How old are you?</p>			
-			</div>
-			<div class="chat friend">
-				<div class="user-photo"><img src="images/james.jpg"></div>
-				<p class="chat-message">And how tall are you?</p>				
-			</div>
-			<div class="chat friend">
-				<div class="user-photo"><img src="images/james.jpg"></div>
-				<p class="chat-message">Hello World!</p>				
-			</div>
-		</div>
-
-		<div class="chat-form">
-			<textarea id="myTextarea" placeholder="Type your message" onkeypress="sendMesByEnter()"></textarea>
-			<input type="submit" value="Send" class="send" onclick="sendMes()">
-		</div>
-	</div>
-
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script>
-		function sendMesByEnter() {
-			if (window.event.keyCode == 13 && document.getElementById("myTextarea").value) {
-				var image = document.createElement("div");
-				var userImage = new Image();
-				userImage.src = "images/curry.jpg";
-				image.appendChild(userImage);
-				image.className = "user-photo";
-
-				var message = document.createElement("p");
-				message.innerHTML = document.getElementById("myTextarea").value;		
-				message.className = "chat-message";
-				document.getElementById("myTextarea").value = "";
-				
-				var container = document.createElement("div");
-				container.appendChild(image);
-				container.appendChild(message);
-				container.className = "chat self";
-
-				document.getElementById("chat-container").appendChild(container);
-			}
-		}
+	$(function () {
+		var socket = io();
+		$('form').submit(function() {
+		    socket.emit('chat message', $('#m').val());
+		    $('#m').val('');
+		    return false;
+		});
+		socket.on('chat message', function(msg) {
+		    $('#messages').append($('<li>').text(msg));
+		});
+	});
 	</script>
 
-	<script>
-		function sendMes() {
-			if (document.getElementById("myTextarea").value) {
-				var image = document.createElement("div");
-				var userImage = new Image();
-				userImage.src = "images/curry.jpg";
-				image.appendChild(userImage);
-				image.className = "user-photo";
+	<body>
+		<div class="topnav">
+			<a href="file:///Users/Jay/Desktop/CNLab_FinalProject/interface/home.html">Home</a>
+			<a href="file:///Users/Jay/Desktop/CNLab_FinalProject/interface/login.html">Login</a>
+			<a href="file:///Users/Jay/Desktop/CNLab_FinalProject/interface/register.html">Register</a>
+			<a class="active" href="file:///Users/Jay/Desktop/CNLab_FinalProject/interface/chat.html">Chat</a>
+		</div>
 
-				var message = document.createElement("p");
-				message.innerHTML = document.getElementById("myTextarea").value;		
-				message.className = "chat-message";
-				document.getElementById("myTextarea").value = "";
-				
-				var container = document.createElement("div");
-				container.appendChild(image);
-				container.appendChild(message);
-				container.className = "chat self";
+		<div class="box">
+			<div class="header">
+				<p align="center">Lebron James<br align="center">31y, Male</br></p>
+			</div>
 
-				document.getElementById("chat-container").appendChild(container);
-			}
-		}
-	</script>
+			<div id = "chat-container" class="chat-container">
+				<div class="chat friend">
+					<div class="user-photo"><img src="images/james.jpg"></div>
+					<p class="chat-message">How are you?</p>				
+				</div>
+				<div class="chat self">
+					<div class="user-photo"><img src="images/curry.jpg"></div>
+					<p class="chat-message">Fine, thx!</p>				
+				</div>
+				<div class="chat friend">
+					<div class="user-photo"><img src="images/james.jpg"></div>
+					<p class="chat-message">How old are you?</p>			
+				</div>
+				<div class="chat friend">
+					<div class="user-photo"><img src="images/james.jpg"></div>
+					<p class="chat-message">And how tall are you?</p>				
+				</div>
+				<div class="chat friend">
+					<div class="user-photo"><img src="images/james.jpg"></div>
+					<p class="chat-message">Hello World!</p>				
+				</div>
+			</div>
 
-</body>
+<!-- 			<div class="chat-form">
+				<ul id="messages"></ul>
+			    <form>
+			    	<input id="m" autocomplete="off" /><button>Send</button>
+			    </form>
+		    </div> -->
+
+			<div class="chat-form">
+				<textarea id="myTextarea" placeholder="Type your message" onkeypress="sendMesByEnter()"></textarea>
+				<input type="submit" value="Send" class="send" onclick="sendMes()">
+			</div>
+		</div>
+	</body>
 </html>
