@@ -5,7 +5,7 @@
 body {
 	margin: 0 auto;
 	background-image: url("images/bg.jpg");
-	background-size: 100% 1200px;
+	background-size: 100% 3000px;
 	font-family: Microsoft JhengHei;
 }
 
@@ -39,10 +39,8 @@ body {
 /****************/
 
 .container {
-	/*width: 60%;*/
-	width: 600px;
+	width: 80%;
 	height: 640px;
-	text-align: center;
 	background-color: rgba(52, 73, 94, 0.7);
 	border-radius: 4px;
 	margin: 0 auto;
@@ -72,6 +70,7 @@ body {
 /********/
 
 .container .online-users {
+	text-align: center;
 	margin-top: 10px;
 }
 
@@ -80,6 +79,7 @@ body {
 }
 
 .container .form-group {
+	text-align: center;
 	width: 100%;
 }
 
@@ -90,11 +90,6 @@ body {
 .container textarea {
 	resize: none;
 }
-
-/*.container .row {
-	display: flex;
-	justify-content: space-around;
-}*/
 
 /************/
 /* REGISTER */
