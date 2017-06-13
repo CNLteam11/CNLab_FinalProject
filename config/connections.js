@@ -31,12 +31,12 @@ module.exports.connections = {
     // localDiskDb: {
     //     adapter: 'sails-disk'
     // },
-    localMysql: {
-        adapter: 'sails-mysql',
-        user: 'root',
-        host: 'localhost',
-        database: 'someDbase'
-    },
+    //localMysql: {
+    //    adapter: 'sails-mysql',
+    //    user: 'root',
+    //    host: 'localhost',
+    //    database: 'someDbase'
+    //},
     /***************************************************************************
      *                                                                          *
      * MySQL is the world's most popular relational database.                   *
@@ -45,13 +45,13 @@ module.exports.connections = {
      * Run: npm install sails-mysql                                             *
      *                                                                          *
      ***************************************************************************/
-    someMysqlServer: {
-        adapter: 'sails-mysql',
-        host: 'ec2-13-58-2-39.us-east-2.compute.amazonaws.com',
-        user: 'ec2-user', //optional
-        password: '', //optional
-        database: 'cnl11' //optional
-    },
+   // someMysqlServer: {
+   //     adapter: 'sails-mysql',
+   //     host: 'ec2-13-58-2-39.us-east-2.compute.amazonaws.com',
+   //     user: 'ec2-user', //optional
+   //     password: '', //optional
+   //     database: 'cnl11' //optional
+   // },
 
     /***************************************************************************
      *                                                                          *
@@ -61,14 +61,14 @@ module.exports.connections = {
      * Run: npm install sails-mongo                                             *
      *                                                                          *
      ***************************************************************************/
-    // someMongodbServer: {
-    //   adapter: 'sails-mongo',
-    //   host: 'localhost',
-    //   port: 27017,
-    //   user: 'username', //optional
-    //   password: 'password', //optional
-    //   database: 'your_mongo_db_name_here' //optional
-    // },
+     someMongodbServer: {
+       adapter: 'sails-mongo',
+       host: 'localhost',
+       port: 27017,
+       user: 'cnl11', //optional
+       password: 'cnl11', //optional
+       database: 'test' //optional
+     },
 
     /***************************************************************************
      *                                                                          *
