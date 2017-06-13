@@ -28,10 +28,15 @@ module.exports.connections = {
      * Installed by default.                                                    *
      *                                                                          *
      ***************************************************************************/
-    localDiskDb: {
-        adapter: 'sails-disk'
+    // localDiskDb: {
+    //     adapter: 'sails-disk'
+    // },
+    localMysql: {
+        adapter: 'sails-mysql',
+        user: 'root',
+        host: 'localhost',
+        database: 'someDbase'
     },
-
     /***************************************************************************
      *                                                                          *
      * MySQL is the world's most popular relational database.                   *
@@ -42,10 +47,10 @@ module.exports.connections = {
      ***************************************************************************/
     someMysqlServer: {
         adapter: 'sails-mysql',
-        host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
-        user: 'YOUR_MYSQL_USER', //optional
-        password: 'YOUR_MYSQL_PASSWORD', //optional
-        database: 'YOUR_MYSQL_DB' //optional
+        host: 'ec2-13-58-2-39.us-east-2.compute.amazonaws.com',
+        user: 'ec2-user', //optional
+        password: '', //optional
+        database: 'cnl11' //optional
     },
 
     /***************************************************************************
