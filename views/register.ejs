@@ -22,19 +22,19 @@
 		<div class="fillin">
 			<div class="left">Username</div>
 			<div class="right">
-				<input type="text" placeholder="Enter your username">
+				<input ng-model="newUsername" type="text" placeholder="Enter your username">
 			</div>
 		</div>
 		<div class="fillin">
 			<div class="left">Password</div>
 			<div class="right">
-				<input type="password" placeholder="Enter your password">
+				<input ng-model="newPassword" type="password" placeholder="Enter your password">
 			</div>
 		</div>
 		<div class="fillin">
 			<div class="left">Gender</div>
 			<div class="right">
-				<select name="gender">
+				<select name="gender" ng-model="newGender">
 					<option value="male">Male</option>
 					<option value="female">Female</option>
 				</select>
@@ -43,7 +43,7 @@
 		<div class="fillin">
 			<div class="left">Age</div>
 			<div class="right">
-				<select name="gender">
+				<select name="age" ng-model="newAge">
 					<option value="18">18</option>
 					<option value="19">19</option>
 					<option value="20">20</option>
@@ -63,19 +63,24 @@
 		<div class="fillin">
 			<div class="left">City</div>
 			<div class="right">
-				<select name="city">
-					<option value="taipei">Taipei</option>
-					<option value="taichung">Taichung</option>
-					<option value="kaohsiung">Kaohsiung</option>
+				<select
+					class="form-control"
+					id="select"
+					ng-model="newCity">
+					<option
+						ng-repeat="city in cities track by $index"
+						ng-value="city"
+						ng-bind="city"></option>
 				</select>
 			</div>
 		</div>	
 		<div class="fillin">
 			<div class="left">E-mail</div>
 			<div class="right">
-				<input type="text" placeholder="Enter your e-mail">
+				<input ng-model="newEmail" type="text" placeholder="Enter your e-mail">
 			</div>
 		</div>
+		<!--
 		<div class="fillin">
 			<div class="left">Feature</div>
 			<div class="right">
@@ -86,10 +91,13 @@
 				</select>
 			</div>
 		</div>	
+		-->
 		<div class="fillin" id="hobbies">
 			<div class="left">Hobbies</div>	
 			<div class="right">
-				<select name="hobbies" multiple="">
+				<select name="hobbies" multiple ng-model="newhobbies">
+					<option ng-repeat="hobby in hobbies track by $index" ng-value="hobby" ng-bind="hobby"></option>
+				<!--
 					<option value="basketball">Basketball</option>
 					<option value="baseball">Baseball</option>
 					<option value="swimming">Swimming</option>
@@ -98,13 +106,14 @@
 					<option value="guitar">Guitar</option>
 					<option value="violin">Violin</option>
 					<option value="singing">Singing</option>
+					-->
 				</select>
 			</div>
 		</div>		
 		<div class="fillin" id="career">
 			<div class="left">Career</div>	
 			<div class="right">
-				<select name="career">
+				<select name="career" ng-model="newCareer">
 					<option value="student">Student</option>
 					<option value="professor">Professor</option>
 					<option value="engineer">Engineer</option>
@@ -143,10 +152,47 @@
 		) {
 			$scope.initialize = function(){
 				console.log('111')
+				$scope.cities = [
+					"基隆市",
+					"臺北市",
+					"新北市",
+					"桃園市",
+					"新竹市",
+					"新竹縣",
+					"苗栗縣",
+					"臺中市",
+					"彰化縣",
+					"南投縣",
+					"雲林縣",
+					"嘉義市",
+					"嘉義縣",
+					"臺南市",
+					"高雄市",
+					"屏東縣",
+					"宜蘭縣",
+					"花蓮縣",
+					"臺東縣",
+					"澎湖縣",
+					"連江縣",
+					"金門縣",
+					"",
+				]
+				$scope.hobbies = [
+					'Basketball',
+					'Baseball',
+					'Swimming',
+					'Jogging',
+					'Piano',
+					'Guitar',
+					'Violin',
+					'Singing',
+				];
 			};
 			$scope.register = function(){
-				console.log("1111111");
-				alert('11111')
+				console.log($scope.newUsername);
+				console.log($scope.newPassword);
+				console.log($scope.newAge);
+				console.log($scope.newCity)
 			};
 
 		})
