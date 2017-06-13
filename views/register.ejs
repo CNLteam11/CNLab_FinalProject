@@ -95,7 +95,7 @@
 		<div class="fillin" id="hobbies">
 			<div class="left">Hobbies</div>	
 			<div class="right">
-				<select name="hobbies" multiple ng-model="newhobbies">
+				<select name="hobbies" multiple ng-model="newHobbies">
 					<option ng-repeat="hobby in hobbies track by $index" ng-value="hobby" ng-bind="hobby"></option>
 				<!--
 					<option value="basketball">Basketball</option>
@@ -192,7 +192,24 @@
 				console.log($scope.newUsername);
 				console.log($scope.newPassword);
 				console.log($scope.newAge);
-				console.log($scope.newCity)
+				console.log($scope.newCity);
+				$http.post('/user/register', {
+					email: $scope.newEmail,
+               	 	password: $scope.newPassword,
+                	username: $scope.newUsername,
+               	 	gender: $scope.newGender,
+                	hobbits: $scope.newHobbies,
+                	age: $scope.newAge,
+                	city: $scope.newCity,
+					career: $scope.newCareer,
+                	// self_introduction: $scope.,
+				})
+				.then(function(res){
+					console.log(res.result)
+				})
+				.catch(function(res){
+					console.log(res)
+				})
 			};
 
 		})
