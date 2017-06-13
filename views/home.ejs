@@ -2,177 +2,125 @@
 <html>
 <head>
 	<title>CNL 11 | HOME</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/style.css">
 	<script type="text/javascript" src="/libs/angular.min.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<!--<script src="/js/dependencies/socket.io.js"></script>-->
 	<!--<link rel="stylesheet" type="text/css" href="./home.css">-->
-	<script>var App = angular.module('app', []);</script>
+	<script>var App = angular.module('home', []);</script>
+	<style>
+
+		#messageArea {
+			display: none;
+		}
+	</style>
 </head>
-<body ng-app="app">
-	<div ng-controller="homeCtrl" ng-init="initialize()" class="topnav">
-		<a class="active" href="/home">Home</a>
-		<a href="/login">Login</a>
+<body ng-app="home" ng-controller="homeCtrl" ng-init="initialize()">
+	<div class="topnav">
+		<a href="/home">Home</a>
+		<!--><a href="/login">Login</a>-->
 		<a href="/register">Register</a>
-		<a href="/chat">Chat</a>
+		<!--<a href="/chat">Chat</a>-->
 	</div>
-	<div class="box">
-		<div class="friend-header">Friends</div>
-		<div class="friend-container">
-			<div class="friend-box" onclick="location.href='/chat'">
-				<div class="user-photo"><img src="images/james.jpg"></div>
-				<div class="leftbox">
-					<div class="user-name">Lebron James</div>
-					<div class="messages">Hello World!</div>
+	<div class="container">
+		<div id="userFormArea" class="row" ng-show="!login">
+			<div class="col-md-12">
+			<form id="userForm">
+				<div class="form-group">
+					<img src="images/login.png">
+					<div class="fillin">
+						<input ng-model="username" type="text" id="username" placeholder="Enter Username:">
+					</div>
+					<div class="fillin">
+						<input ng-model="password" type="password" id="password" placeholder="Enter Password:">
+					</div>
+					<button ng-click="login()" type="submit" class="btn btn-primary" value="Login"/></button><br><br>
+
+					<a href="#">Forget password?</a><br><br>
+					<a href="/register">Register</a>					
 				</div>
-				<div class="rightbox">
-					<div class="time">18:23</div>
-					<div class="no">3</div>
+			</form>
+			</div>
+		</div>
+
+		<div id="messageArea" class="row" ng-show="login">
+			<div class="col-md-4">
+				<div class="online-users">
+					<p>Online Users</p>
+					<ul class="list-group" id="users"></ul>
 				</div>
 			</div>
-			<div class="friend-box" ng-click="test()">
-				<div class="user-photo"><img src="images/curry.jpg"></div>
-				<div class="leftbox">
-					<div class="user-name">Stephen Curry</div>
-					<div class="messages">Eat my three pointer</div>
-				</div>
-				<div class="rightbox">
-					<div class="time">17:30</div>
-					<div class="no">1</div>
-				</div>
-			</div>
-			<div class="friend-box">
-				<div class="user-photo"><img src="images/durant.jpg"></div>
-				<div class="leftbox">
-					<div class="user-name">Kevin Durant</div>
-					<div class="messages">Let's go Cavs! HAHAHAHAHHAHAHAHAHAHAHHA</div>
-				</div>
-				<div class="rightbox">
-					<div class="time">14:35</div>
-					<div class="no">2</div>
-				</div>
-			</div>
-			<div class="friend-box">
-				<div class="user-photo"><img src="images/james.jpg"></div>
-				<div class="leftbox">
-					<div class="user-name">King James</div>
-					<div class="messages">CLE</div>
-				</div>
-				<div class="rightbox">
-					<div class="time"></div>
-					<div class="no"></div>
-				</div>
-			</div>
-			<div class="friend-box">
-				<div class="user-photo"><img src="images/james.jpg"></div>
-				<div class="leftbox">
-					<div class="user-name">Lebron James</div>
-					<div class="messages"></div>
-				</div>
-				<div class="rightbox">
-					<div class="time"></div>
-					<div class="no"></div>
-				</div>
-			</div>
-			<div class="friend-box">
-				<div class="user-photo"><img src="images/james.jpg"></div>
-				<div class="leftbox">
-					<div class="user-name">Lebron James</div>
-					<div class="messages"></div>
-				</div>
-				<div class="rightbox">
-					<div class="time"></div>
-					<div class="no"></div>
-				</div>
-			</div>
-			<div class="friend-box">
-				<div class="user-photo"><img src="images/james.jpg"></div>
-				<div class="leftbox">
-					<div class="user-name">Lebron James</div>
-					<div class="messages"></div>
-				</div>
-				<div class="rightbox">
-					<div class="time"></div>
-					<div class="no"></div>
-				</div>
-			</div>
-			<div class="friend-box">
-				<div class="user-photo"><img src="images/james.jpg"></div>
-				<div class="leftbox">
-					<div class="user-name">Lebron James</div>
-					<div class="messages"></div>
-				</div>
-				<div class="rightbox">
-					<div class="time"></div>
-					<div class="no"></div>
-				</div>
-			</div>
-			<div class="friend-box">
-				<div class="user-photo"><img src="images/james.jpg"></div>
-				<div class="leftbox">
-					<div class="user-name">Lebron James</div>
-					<div class="messages"></div>
-				</div>
-				<div class="rightbox">
-					<div class="time"></div>
-					<div class="no"></div>
-				</div>
-			</div>
-			<div class="friend-box">
-				<div class="user-photo"><img src="images/james.jpg"></div>
-				<div class="leftbox">
-					<div class="user-name">Lebron James</div>
-					<div class="messages"></div>
-				</div>
-				<div class="rightbox">
-					<div class="time"></div>
-					<div class="no"></div>
-				</div>
-			</div>
-			<div class="friend-box">
-				<div class="user-photo"><img src="images/james.jpg"></div>
-				<div class="leftbox">
-					<div class="user-name">Lebron James</div>
-					<div class="messages"></div>
-				</div>
-				<div class="rightbox">
-					<div class="time"></div>
-					<div class="no"></div>
-				</div>
-			</div>
-			<div class="friend-box">
-				<div class="user-photo"><img src="images/james.jpg"></div>
-				<div class="leftbox">
-					<div class="user-name">Lebron James</div>
-					<div class="messages"></div>
-				</div>
-				<div class="rightbox">
-					<div class="time"></div>
-					<div class="no"></div>
-				</div>
-			</div>
-			<div class="friend-box">
-				<div class="user-photo"><img src="images/james.jpg"></div>
-				<div class="leftbox">
-					<div class="user-name">Lebron James</div>
-					<div class="messages"></div>
-				</div>
-				<div class="rightbox">
-					<div class="time"></div>
-					<div class="no"></div>
-				</div>
+			<div class="col-md-8">
+				<div class="chat" id="chat"></div>
+
+				<form id="messageForm">
+					<div class="form-group">
+						<textarea class="form-control" id="message" placeholder="Enter messages:"></textarea>
+						<br/>
+						<input type="submit" class="btn btn-primary" value="Send Message"/>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
+
 	<script>
-		App.controller('homeCtrl', function(
-			$scope,
-			$rootScope,
-			$http
-		) {
+		/*$(function() {
+			var socket = io.connect();
+			var $messageForm = $('#messageForm');
+			var $message = $('#message');
+			var $chat = $('#chat');
+			var $messageArea = $('#messageArea');
+			var $userFormArea = $('#userFormArea');
+			var $userForm = $('#userForm');
+			var $users = $('#users');
+			var $username = $('#username');
+		
+			$messageForm.submit(function(e){
+				e.preventDefault();
+				socket.emit('send message', $message.val());
+				$message.val('');
+			});
+
+			socket.on('new message', function(data){
+				$chat.append('<div class="well"><strong>'+data.user+'</strong>: '+data.msg+'</div>');
+			});
+
+			$userForm.submit(function(e){
+				e.preventDefault();
+				socket.emit('new user', $username.val(), function(data){
+					if (data){
+						$userFormArea.hide();
+						$messageArea.show();
+					}
+				});
+				$username.val('');
+			});
+
+			socket.on('get users', function(data){
+				var html = '';
+				for (i = 0; i < data.length; i++) {
+					html += '<li class="list-group-item">'+data[i]+'</li>';
+				}
+				$users.html(html);
+			});
+		});*/
+	</script>
+	<script type="text/javascript">
+		App.controller('homeCtrl', function($scope,$http) {
 			$scope.initialize = function(){
 				console.log("33333")
-			};
+				$scope.username = '';
+				$scope.password = '';
+				$scope.login = false
+				$scope.test()
+			}
 			$scope.test = function(){
 				console.log("test")
+			}
+			$scope.login = function(){
+				console.log('loginnnnnn')
 			}
 		})
 	</script>

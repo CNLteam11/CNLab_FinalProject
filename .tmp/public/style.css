@@ -5,7 +5,7 @@
 body {
 	margin: 0 auto;
 	background-image: url("images/bg.jpg");
-	background-size: 100% 1200px;
+	background-size: 100% 3000px;
 	font-family: Microsoft JhengHei;
 }
 
@@ -34,18 +34,17 @@ body {
     color: white;
 }
 
-/********************/
-/* REGISTER & LOGIN */
-/********************/
+/****************/
+/* LOGIN & CHAT */
+/****************/
 
 .container {
-	width: 480px;
+	width: 80%;
 	height: 640px;
-	text-align: center;
 	background-color: rgba(52, 73, 94, 0.7);
 	border-radius: 4px;
 	margin: 0 auto;
-	margin-top: 150px;
+	margin-top: 100px;
 }
 
 .container img {
@@ -55,25 +54,9 @@ body {
 	margin-bottom: 30px;
 }
 
-.container p {
-	font-size: 30px;
-	color: white;
-	padding-top: 10px;
-	margin-bottom: 10px;
-}
-
-.container[id="register-container"] {
-	overflow-y: scroll; 
-}
-
-.container[id="register-container"]::-webkit-scrollbar {
-	width: 5px;
-}
-
-.container[id="register-container"]::-webkit-scrollbar-thumb {
-	background-color: rgba(255, 255, 255, 0.7);
-	border-radius: 3px;
-}
+/*********/
+/* LOGIN */
+/*********/
 
 .fillin {
 	height: 30px;
@@ -81,6 +64,36 @@ body {
 	display: flex;
 	justify-content: space-around;
 }
+
+/********/
+/* CHAT */
+/********/
+
+.container .online-users {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.container p {
+	color: white;
+}
+
+.container .form-group {
+	text-align: center;
+	width: 100%;
+}
+
+.container .chat {
+	margin-top: 10px;
+}
+
+.container textarea {
+	resize: none;
+}
+
+/************/
+/* REGISTER */
+/************/
 
 .fillin .left {
 	width: 30%;
@@ -110,7 +123,7 @@ body {
 }
 
 .fillin[id="hobbies"] {
-	margin-bottom: 60px;
+	margin-bottom: 50px;
 }
 
 .fillin textarea {
@@ -121,14 +134,13 @@ body {
 	resize: none;
 }
 
-/*.fillin[id="info"] {
-	margin-bottom: 50px;
-}*/
+.fillin[id="info"] {
+	margin-bottom: 70px;
+}
 
 .container .btn {
 	color: white;	
 	background-color: #2ecc71;
-	margin-bottom: 20px;
 	padding: 15px 30px;
 	border-radius: 4px;
 	border-bottom: 4px solid #27ae60;
@@ -147,268 +159,4 @@ body {
     select[name="hobbies"] {
     	height: 70px;
     }
-}
-
-/*************/
-/* CHAT PART */
-/*************/
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-.box {
-	width: 50%;
-	min-width: 400px;
-	max-width: 600px;
-	height: 800px;
-	margin: 50px auto;
-	box-shadow: 0 3px #ccc;
-	display: flex;	
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.box .header {
-	width: 100%;
-	height: 55px;
-	font-size: 20px;
-	color: white;
-	text-align: center;
-	background-color: #404040;
-}
-
-.box .chat-container {
-	width: 100%;
-	height: 90%;
-	background-color: rgba(255, 255, 255, 0.3);
-	padding: 10px;
-	overflow-x: hidden;
-	overflow-y: scroll; 
-}
-
-.chat-container::-webkit-scrollbar {
-	width: 5px;
-}
-
-.chat-container::-webkit-scrollbar-thumb {
-	background-color: rgba(255, 255, 255, 0.7);
-	border-radius: 3px;
-}
-
-.chat {
-	width: 100%;
-	display: flex;
-	flex-flow: row wrap;
-	align-items: flex-start;
-	margin-bottom: 10px;
-}
-
-.chat .user-photo {
-	width: 60px;
-	height: 60px;
-	background-image: url("images/login.png");
-	border-radius: 50%;
-	overflow: hidden;
-}
-
-.chat .user-photo img {
-	height: 100%;
-}
-
-.chat .chat-message {
-	max-width: 280px;
-	font-size: 15px;
-	color: white;
-	margin: 5px 10px;
-	padding: 5px;
-	border-radius: 10px;	
-}
-
-.friend {
-	display: flex;
-	justify-content: flex-start;;
-}
-
-.self {
-	display: flex;
-	justify-content: flex-end;
-}
-
-.friend .chat-message {
-	background-color: gray;
-}
-
-.self .chat-message {
-	background-color: rgb(0, 102, 255);
-	order: -1; 
-}
-
-.chat-form {
-	height: 6%;
-	display: flex;
-	justify-content: space-between;
-}
-
-.chat-form textarea {
-	width: 87%;
-	font-size: 18px;
-	color: white;
-	background-color: black;
-	padding: 4px;
-	border: 0px solid white;
-	resize: none;
-}
-
-.chat-form textarea:focus {
-	color: black;
-	background-color: white;
-}
-
-.chat-form textarea:hover {
-    background-color: white;
-    color: black;
-}
-
-.chat-form input {
-	width: 12.6%;
-	background-color: black;
-	padding: 0px;
-	font-size: 18px;
-	color: white;
-	border: none;
-	cursor: pointer;
-	-webkit-transition background:  .2s ease;
-	-moz-transition background:  .2s ease;
-	-o-transition background:  .2s ease;
-}
-
-.chat-form input:hover {
-	color: black;
-	background-color: white;
-}
-
-.chat-form button {
-	width: 12.6%;
-	background-color: black;
-	padding: 0px;
-	font-size: 18px;
-	color: white;
-	border: none;
-	cursor: pointer;
-	-webkit-transition background:  .2s ease;
-	-moz-transition background:  .2s ease;
-	-o-transition background:  .2s ease;
-}
-
-.chat-form button:hover {
-	background-color: white;
-	color: black;
-}
-
-/*************/
-/* HOME PART */
-/*************/
-
-.box .friend-header {
-	width: 100%;
-	height: 30px;
-	font-size: 20px;
-	color: white;
-	text-align: center;
-	background-color: #404040;
-}
-
-.box .friend-container {
-	width: 100%;
-	height: 96%;
-	background-color: rgba(255, 255, 255, 0.3);
-	overflow-x: hidden;
-	overflow-y: scroll; 
-}
-
-.box .friend-container::-webkit-scrollbar {
-	width: 5px;
-}
-
-.box .friend-container::-webkit-scrollbar-thumb {
-	background-color: rgba(255, 255, 255, 0.5);
-	border-radius: 5px;
-}
-
-.box .friend-box {
-	width: 100%;
-	height: 60px;
-	background-color: rgba(255, 255, 255, 0.3);
-	margin-bottom: 1px;
-	padding: 5px;
-	display: flex;
-	justify-content: space-between;
-}
-
-.box .friend-container div:hover {
-    background-color: white;
-}
-
-.friend-box .user-photo {
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	overflow: hidden;
-}
-
-.friend-box .user-photo img {
-	height: 100%;
-}
-
-.friend-box .leftbox { 
-	width: 80%;
-	max-width: 70%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.friend-box .leftbox .user-name {
-	height: 35%;
-	font-size: 15px;
-	color: gray;
-}
-
-.friend-box .leftbox .messages {
-	height: 60%;
-	font-size: 12px;
-	color: black;
-}
-
-.friend-box .rightbox {
-	width: 10%;
-	height: 100%;
-	display: flex;
-	align-items: flex-end;
-	flex-direction: column;
-	justify-content: space-between; 
-}
-
-.friend-box .rightbox .time {
-	width: 33px;
-	font-size: 10px;
-	color: gray;
-	display: flex;
-	justify-content: center;
-	align-content: flex-start;
-}
-
-.friend-box .rightbox .no {
-	width: 20px;
-	font-size: 15px;
-	color: white;
-	background-color: rgb(26, 255, 26);	
-	display: flex;
-	justify-content: center;
-	align-content: flex-end;
-	border-radius: 45%;
 }
