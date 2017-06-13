@@ -9,52 +9,52 @@ module.exports = {
     attributes: {
         username: {
             type: 'string',
-            default: '',
+            defaultsTo: '',
         },
 
         password: {
             type: 'string',
-            default: '',
+            defaultsTo: '',
         },
 
         gender: {
             type: 'string',
-            default: '',
+            defaultsTo: '',
         },
 
         age: {
             type: 'string',
-            default: '',
+            defaultsTo: '',
         },
 
         city: {
             type: 'string',
-            default: '',
+            defaultsTo: '',
         },
 
         email: {
             type: 'string',
-            default: '',
+            defaultsTo: '',
         },
 
         feature: {
             type: 'string',
-            default: '',
+            defaultsTo: '',
         },
 
         self_introduction: {
             type: 'string',
-            default: '',
+            defaultsTo: '',
         },
 
         hobbits: {
             type: 'array',
-            default: [],
+            defaultsTo: [],
         },
 
         career: {
             type: 'string',
-            default: '',
+            defaultsTo: '',
         },
 
     }

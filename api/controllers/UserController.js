@@ -43,6 +43,7 @@ module.exports = {
             })
             .exec(function(err, user) {
                 console.log('1');
+		sails.log.error(err)
                 console.log(err);
                 console.log('2');
                 console.log(user);
