@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="/style.css">
 	<script type="text/javascript" src="/libs/angular.min.js"></script>
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<!--<script src="/js/dependencies/socket.io.js"></script>-->
+	<script src="/socket.io/socket.io.js"></script>
 	<!--<link rel="stylesheet" type="text/css" href="./home.css">-->
 	<script>var App = angular.module('home', []);</script>
 	<style>
@@ -23,7 +23,7 @@
 		<!--<a href="/chat">Chat</a>-->
 	</div>
 	<div class="container">
-		<div id="userFormArea" class="row" ng-show="!login">
+		<div id="userFormArea" class="row" ng-show="!logined">
 			<div class="col-md-12">
 			<form id="userForm">
 				<div class="form-group">
@@ -43,7 +43,7 @@
 			</div>
 		</div>
 
-		<div id="messageArea" class="row" ng-show="login">
+		<div id="messageArea" class="row" ng-show="logined">
 			<div class="col-md-4">
 				<div class="online-users">
 					<p>Online Users</p>
@@ -112,14 +112,24 @@
 				console.log("33333")
 				$scope.username = '';
 				$scope.password = '';
-				$scope.login = false
-				$scope.test()
-			}
-			$scope.test = function(){
-				console.log("test")
+				$scope.logined = false;
 			}
 			$scope.login = function(){
-				console.log('loginnnnnn')
+				$http.post('/user/login',{
+					username: $scope.username,
+					password: $scope.password
+				})
+				.then(function(response){
+					// console.log(response.data['result'])
+					if(response.data['result'] == true){
+						console.log('true user')
+						$scope.logined = true
+					}
+					else{
+						console.log('fake user')
+						alert('輸入的帳號密碼錯誤')
+					}
+				})
 			}
 		})
 	</script>
