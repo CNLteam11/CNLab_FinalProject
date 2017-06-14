@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="/style.css">
 	<script type="text/javascript" src="/libs/angular.min.js"></script>
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
 	<!--<link rel="stylesheet" type="text/css" href="./home.css">-->
 	<script>var App = angular.module('home', []);</script>
 	<style>
@@ -32,7 +32,7 @@
 					<div class="fillin">
 						<input ng-model="password" type="password" id="password" placeholder="Enter Password:">
 					</div>
-					<button ng-click="login()" type="submit" class="btn btn-primary" value="Login"/></button><br><br>
+					<button ng-click="login()" type="submit" class="btn btn-primary" value="Login"/>login</button><br><br>
 
 					<a href="#">Forget password?</a><br><br>
 					<a href="/register">Register</a>					
