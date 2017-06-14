@@ -45,7 +45,7 @@ module.exports = {
             })
             .exec(function(err, user) {
                 if (user.length > 0) {
-                    return res.json({ result: true })
+                    return res.json({ result: true, hobbits: user[0].hobbits })
                 } else {
                     return res.json({ result: false })
                 }
