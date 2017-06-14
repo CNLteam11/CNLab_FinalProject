@@ -141,10 +141,15 @@ body {
 .container .btn {
 	color: white;	
 	background-color: #2ecc71;
-	padding: 15px 30px;
+	padding: 15px 15px;
 	border-radius: 4px;
 	border-bottom: 4px solid #27ae60;
+	margin-bottom: 2px;
 	border: none;
+}
+
+.btn-chatroom {
+	width: 100px;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {  /*safari and chrome*/

@@ -42,10 +42,20 @@
 		</div>
 
 		<div id="messageArea" class="row">
-			<div class="col-md-4">
+			<div class="col-md-2">
 				<div class="online-users">
 					<p>Online Users</p>
 					<ul class="list-group" id="users"></ul>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="online-users">
+					<p>Chat Rooms</p>
+					<ul class="list-group" id="chatrooms">
+						<button class="btn btn-chatroom" value="Basketball" onclick="enterBasketballChatroom()">Basketball</button>
+						<button class="btn btn-chatroom" value="Baseball" onclick="enterBaseballChatroom()" >Baseball</button>
+						<button class="btn btn-chatroom" value="Swimming" onclick="enterSwimmingChatroom()" >Swimming</button>
+					</ul>
 				</div>
 			</div>
 			<div class="col-md-8">
@@ -61,6 +71,25 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+		function enterBasketballChatroom() {
+			console.log('BASKETBALL');
+		}
+	</script>
+
+	<script>
+		function enterBaseballChatroom() {
+
+		}
+	</script>
+
+	<script>
+		function enterSwimmingChatroom() {
+
+		}
+	</script>
+
 
 	<script>
 		$(function() {
@@ -102,6 +131,8 @@
 				}
 				$users.html(html);
 			});
+
+			socket.on('')
 		});
 	</script>
 </body>
